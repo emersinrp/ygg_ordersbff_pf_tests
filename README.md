@@ -13,7 +13,6 @@ Este projeto é um gerador de payloads para integração com a API BFF de pedido
 - [Funcionalidades](#-funcionalidades)
 - [Exemplo de Uso](#-exemplo-de-uso)
 - [Contribuições](#-contribuições)
-- [Licença](#-licença)
 
 ---
 
@@ -45,7 +44,7 @@ Este arquivo contém a função create_bff_body, que é responsável por gerar o
 	•	address_info: Informações do endereço extraídas do MongoDB.
 ```
 ---
-✅ Pré-requisitos
+## ✅ Pré-requisitos
 
 Antes de executar este projeto, certifique-se de ter:
 	1.	Python 3.8+ instalado.
@@ -54,7 +53,7 @@ Antes de executar este projeto, certifique-se de ter:
 	3.	Um banco de dados MongoDB configurado com os dados necessários.
 
 ---
-🚀 Como Executar
+## 🚀 Como Executar
 
 	1.	Configurar o MongoDB:
 Certifique-se de que seu banco de dados MongoDB contém os dados esperados para o cliente (nome, endereço, identidade, etc.).
@@ -63,7 +62,8 @@ Certifique-se de que seu banco de dados MongoDB contém os dados esperados para 
 No terminal, execute o seguinte comando:
 from helpers.body_bff_creator import create_bff_body
 
-# Dados de exemplo
+*Dados de exemplo:*
+
 identity = "0009319663"
 sales_organization = "1625"
 payment_method = "boleto"
@@ -87,7 +87,7 @@ payload = create_bff_body(
 
 print(payload)
 
-# Execução Locust
+*Execução Locust:*
 
 ```plaintext
 locust -f locustfile.py
@@ -102,7 +102,7 @@ locust -f locustfiles/ --users 10 --spawn-rate 1
 ```
 
 ---
-✨ Funcionalidades
+## ✨ Funcionalidades
 
 	•	Geração Automática de Payloads:
 	•	Endereços (billing e delivery) preenchidos automaticamente.
@@ -112,7 +112,7 @@ locust -f locustfiles/ --users 10 --spawn-rate 1
 	•	Dados Dinâmicos:
 	•	Gera números de pedido únicos e calcula a data de entrega automaticamente.
 ---
-🧰 Exemplo de Uso
+## 🧰 Exemplo de Uso
 
 Input
 
@@ -133,7 +133,7 @@ address_info = {
 
 ---
 
-🤝 Contribuições
+## 🤝 Contribuições
 
 Contribuições são bem-vindas! Para contribuir:
 	1.	Faça um fork do repositório.
