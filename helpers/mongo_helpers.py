@@ -1,8 +1,8 @@
-# helpers/mongo_helpers.py
+
 
 from pymongo import MongoClient
 import os
-import pprint
+
 
 # Conexão MongoDB
 MONGO_CONNECTION_STRING = os.getenv("MONGO_CONNECTION_STRING")
@@ -17,7 +17,6 @@ def fetch_sales_info(identity):
         client = MongoClient(MONGO_CONNECTION_STRING)
         db = client[DATABASE_NAME]
         collection = db[COLLECTION_NAME]
-        print("Conexão com MongoDB estabelecida com sucesso.")
     except Exception as e:
         print(f"Erro ao conectar ao MongoDB: {e}")
         return None, None, None
@@ -32,8 +31,6 @@ def fetch_sales_info(identity):
         })
 
         if result:
-            print("Documento encontrado:")
-            pprint.pprint(result)
 
             # Extraindo informações de vendas
             sales_info = result.get("sales_informations", [])

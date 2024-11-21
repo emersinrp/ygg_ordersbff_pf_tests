@@ -1,4 +1,4 @@
-# locustfile.py
+
 
 from locust import HttpUser, task, between
 from token_manager import TokenManager
@@ -12,6 +12,7 @@ from faker import Faker
 load_dotenv()
 fake = Faker()
 
+        
 class BFFPerformanceTest(HttpUser):
     wait_time = between(1, 5)
     token_manager = TokenManager()
@@ -50,10 +51,6 @@ class BFFPerformanceTest(HttpUser):
             address_info=address_info
         )
 
-        # Imprime o payload antes de enviá-lo
-        print("Payload que está sendo enviado para a API:")
-        print(json.dumps(payload, indent=4))
-
         try:
             response = self.client.post(
                 self.orders_endpoint, 
@@ -67,7 +64,7 @@ class BFFPerformanceTest(HttpUser):
             if response_data.get("success") == True:
                 print(f"Order Number: {response_data.get('order_number')}")
             else:
-                print("Erro na resposta: Pedido não foi bem-sucedido.")
+                print("Erro na resposta: Pedido não foi realizado.")
                 
         except Exception as e:
             print(f"Erro na requisição: {e}")
